@@ -1,19 +1,29 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/store/appSlice";
 
 const Head = () => {
+  const dispatch = useDispatch();
+
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+  };
+
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
       <div className="flex col-span-1">
         <img
-          className="h-9"
+          onClick={() => toggleMenuHandler()}
+          className="h-9 cursor-pointer"
           alt="menu"
           src="src\utils\images\hamburger-menu.png"
         />
-        <img
-          className="h-9 mx-2"
-          src="src\utils\images\Youtube-Logo-Vector.jpg"
-          alt="youtube-logo"
-        />
+        <a href="#">
+          <img
+            className="h-9 mx-2 cursor-pointer"
+            src="src\utils\images\Youtube-Logo-Vector.jpg"
+            alt="youtube-logo"
+          />
+        </a>
       </div>
       <div className="col-span-10 px-10">
         <input

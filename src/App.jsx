@@ -2,15 +2,17 @@ import { useState } from "react";
 import "./App.css";
 import Head from "./components/Head";
 import Body from "./components/Body";
+import { Provider } from "react-redux";
+import store from "./utils/store/store";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div>
-      <Head />
-      <Body />
-    </div>
+    <Provider store={store}>
+      <div>
+        <Head />
+        <Body />
+      </div>
+    </Provider>
   );
 }
 
